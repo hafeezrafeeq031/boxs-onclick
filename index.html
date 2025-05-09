@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxs OnClick</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div>
+        <div class="toolbar">
+
+            <div class="color">
+                <div style="background-color: red;" onclick="selectedColor(this)"></div>
+                <div style="background-color: green;" onclick="selectedColor(this)"></div>
+                <div style="background-color: blue;" onclick="selectedColor(this)"></div>
+                <div style="background-color: yellow;" onclick="selectedColor(this)"></div>
+                <div style="background-color: brown;" onclick="selectedColor(this)"></div>
+                <div style="background-color: purple;" onclick="selectedColor(this)"></div>
+            </div>
+            <div class="shape">
+                <div onclick="selectedShape(this)" id="circle"></div>
+                <div onclick="selectedShape(this)" id="Square"></div>
+                <div onclick="selectedShape(this)" id="redtangle"></div>
+                <div onclick="selectedShape(this)" id="oval"></div>
+                <div onclick="selectedShape(this)" id="stare"></div>
+                <div onclick="selectedShape(this)" id="traiangle"></div>
+            </div>
+
+        </div>
+
+        <div id="ground" onclick="drawShape(this,event)">
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <script src="app.js"></script>
+</body>
+
+</html>

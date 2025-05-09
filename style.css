@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.toolbar{
+    
+    background-color: rgb(255, 204, 204 , 0.5);
+    
+    border-radius: 50px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    gap: 20px;
+    width: 1400px;
+    height: 80px;
+    margin: 20px 60px;
+    padding: 10px ;
+}
+
+.color{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100px;
+    height: 50px;
+   
+}
+.color>div{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.toolbar>div{
+    
+    width: 500px;
+    height: 50px;
+}
+
+.shape{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100px;
+    height: 50px;
+}
+
+.shape>div{
+    width: 50px;
+    height: 50px;
+  
+    border: 2px solid gray;
+}
+
+
+#circle{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+#Square{
+    width: 50px;
+    height: 50px;
+}
+#redtangle{
+    width: 80px;
+    height: 50px;
+}
+#oval{
+    width: 80px;
+    height: 50px;
+    border-radius: 40px 40px;
+}
+#stare{
+    width: 50px;
+    height: 50px;
+}
+#traiangle{
+    width: 50px;
+    height: 50px;
+}
+
+#ground{
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+    
+}
