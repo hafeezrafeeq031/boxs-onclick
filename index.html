@@ -14,12 +14,12 @@
         <div class="toolbar">
 
             <div class="color">
-                <div style="background-color: red;" onclick="selectedColor(this)"></div>
-                <div style="background-color: green;" onclick="selectedColor(this)"></div>
-                <div style="background-color: blue;" onclick="selectedColor(this)"></div>
-                <div style="background-color: yellow;" onclick="selectedColor(this)"></div>
-                <div style="background-color: brown;" onclick="selectedColor(this)"></div>
-                <div style="background-color: purple;" onclick="selectedColor(this)"></div>
+                <div onclick="selectedColor(this)" id="red"></div>
+                <div onclick="selectedColor(this)" id="green"></div>
+                <div onclick="selectedColor(this)" id="purple"></div>
+                <div onclick="selectedColor(this)" id="black"></div>
+                <div onclick="selectedColor(this)" id="yellow"></div>
+                <div onclick="selectedColor(this)" id="orange"></div>
             </div>
             <div class="shape">
                 <div onclick="selectedShape(this)" id="circle"></div>
@@ -29,7 +29,7 @@
                 <div onclick="selectedShape(this)" id="stare"></div>
                 <div onclick="selectedShape(this)" id="traiangle"></div>
             </div>
-
+       
         </div>
 
         <div id="ground" onclick="drawShape(this,event)">

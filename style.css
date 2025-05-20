@@ -40,6 +40,26 @@
     height: 50px;
 }
 
+
+#red{
+    background-color: red;
+}
+#green{
+    background-color: green;
+}
+#purple{
+    background-color: purple;
+}
+#black{
+    background-color:  black;
+}
+#yellow{
+    background-color: yellow;
+}
+#orange{
+    background-color: orange;
+}
+
 .shape{
     display: flex;
     justify-content: center;
