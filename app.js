@@ -13,25 +13,25 @@ function selectedColor(div) {
         previousColorDiv.style.border = "none";
     }
 
-    // Set new active color and add border to selected color
-    activeColor = div.style.backgroundColor; // Use actual color
+
+    activeColor = div.style.backgroundColor
     div.style.border = "3px solid lightgreen";
     previousColorDiv = div;
 }
 
-// Called when a shape div is clicked
+
 function selectedShape(div) {
-    // Remove highlight from previous shape
+
     if (previousShape !== null) {
         previousShape.style.backgroundColor = "transparent";
     }
 
-    activeshape = div.dataset.shape; // use data-shape for clarity
-    div.style.backgroundColor = "lightgreen"; // highlight selected shape
+    activeshape = div.dataset.shape;
+    div.style.backgroundColor = "lightgreen";
     previousShape = div;
 }
 
-// Draw the selected shape at click position
+
 function drawShape(container, event) {
     if (!activeshape || !activeColor) {
         alert("Please select a shape and color");
@@ -48,7 +48,7 @@ function drawShape(container, event) {
     shapeDiv.style.width = "50px";
     shapeDiv.style.height = "50px";
 
-    // Apply shape styles
+
     if (activeshape === "circle") {
         shapeDiv.style.borderRadius = "50%";
     } else if (activeshape === "square") {
@@ -62,7 +62,6 @@ function drawShape(container, event) {
     container.appendChild(shapeDiv);
 }
 
-// Change shape's color when clicked
 function changeColor(div) {
     div.style.backgroundColor = activeColor;
 }
