@@ -1,63 +1,3 @@
-// let activeshape = "";
-// let activeColor = "";
-// let previousShape = null;
-
-// function selectedColor(div) {
-//     if (previousShape !== null) previousShape.style.background = "transparent";
-//     if (activeshape !== "") activeshape = "";
-//     div.style.border = "3px solid lightgreen";
-//     activeColor = div.id;
-   
-    
-// }
-
-// function selectedShape(div) {
-//     if (previousShape) {
-//         previousShape.style.backgroundColor = "transparent"
-//        ;
-//     }
-//     activeshape = div.id;
-//     console.log(activeshape)
-//     div.style.backgroundColor = activeColor;
-//     previousShape = div;
-// }
-
-// function drawShape(div, event) {
-//     if (activeshape === "" || activeColor === "") {
-//         alert("Please select a shape and color");
-//         return;
-//     }
-
-//     console.log(event.clientX, event.clientY);
-
-//     if (activeshape !== "") {
-//         var bg = `rgba(${color()}, ${color()}, ${color()}, 0.5)`;
-//         div.innerHTML += `<div
-//             onclick="changeColor(this)"
-//             class="${activeshape}"
-//             style="
-//                 position: absolute;
-//                 top: ${event.clientY}px;
-//                 left: ${event.clientX}px;
-//                 background-color: ${bg};
-//             ">
-//         </div>`;
-//     }
-// }
-
-// function color() {
-//     return Math.round(Math.random() * 255);
-// }
-
-// function color() {
-//     return Math.round(Math.random() * 255);
-// }
-
-// function changeColor(div) {
-//     div.style.backgroundColor = activeColor;
-// }
-
-
 
 
 
@@ -66,45 +6,55 @@ let activeColor = "";
 let previousShape = null;
 let previousColorDiv = null;
 
+// Called when a color div is clicked
 function selectedColor(div) {
-    // Remove border from previous color selection
+    // Remove border from previous selection
     if (previousColorDiv !== null) {
         previousColorDiv.style.border = "none";
     }
 
-    // Highlight newly selected color
+    // Set new active color and add border to selected color
+    activeColor = div.style.backgroundColor; // Use actual color
     div.style.border = "3px solid lightgreen";
-    activeColor = div.id;
     previousColorDiv = div;
 }
 
+// Called when a shape div is clicked
 function selectedShape(div) {
     // Remove highlight from previous shape
     if (previousShape !== null) {
         previousShape.style.backgroundColor = "transparent";
     }
 
-    activeshape = div.id;
-    div.style.backgroundColor = activeColor;
+    activeshape = div.dataset.shape; // use data-shape for clarity
+    div.style.backgroundColor = "lightgreen"; // highlight selected shape
     previousShape = div;
 }
 
+// Draw the selected shape at click position
 function drawShape(container, event) {
-    if (activeshape === "" || activeColor === "") {
+    if (!activeshape || !activeColor) {
         alert("Please select a shape and color");
         return;
     }
 
-    const bg = `rgba(${color()}, ${color()}, ${color()}, 0.5)`;
-
     const shapeDiv = document.createElement("div");
     shapeDiv.className = activeshape;
-    shapeDiv.style.cssText = `
-        position: absolute;
-        top: ${event.clientY}px;
-        left: ${event.clientX}px;
-        background-color: ${bg};
-    `;
+
+    shapeDiv.style.position = "absolute";
+    shapeDiv.style.top = `${event.clientY}px`;
+    shapeDiv.style.left = `${event.clientX}px`;
+    shapeDiv.style.backgroundColor = activeColor;
+    shapeDiv.style.width = "50px";
+    shapeDiv.style.height = "50px";
+
+    // Apply shape styles
+    if (activeshape === "circle") {
+        shapeDiv.style.borderRadius = "50%";
+    } else if (activeshape === "square") {
+        shapeDiv.style.borderRadius = "0";
+    }
+
     shapeDiv.onclick = function () {
         changeColor(shapeDiv);
     };
@@ -112,16 +62,10 @@ function drawShape(container, event) {
     container.appendChild(shapeDiv);
 }
 
-function color() {
-    return Math.round(Math.random() * 255);
-}
-
+// Change shape's color when clicked
 function changeColor(div) {
     div.style.backgroundColor = activeColor;
 }
-
-
-
 
 
 
