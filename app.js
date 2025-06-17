@@ -1,85 +1,62 @@
-
-
-
 let activeshape = "";
 let activeColor = "";
 let previousShape = null;
 let previousColorDiv = null;
 
-// Called when a color div is clicked
 function selectedColor(div) {
-    // Remove border from previous selection
-    if (previousColorDiv !== null) {
-        previousColorDiv.style.border = "none";
-    }
+  // Remove previous selection
+  if (previousColorDiv !== null) {
+    previousColorDiv.style.border = "2px solid transparent";
+  }
 
-
-    activeColor = div.style.backgroundColor
-    div.style.border = "3px solid lightgreen";
-    previousColorDiv = div;
+  // Highlight new color
+  div.style.border = "3px solid lightgreen";
+  activeColor = div.style.backgroundColor;
+  previousColorDiv = div;
 }
-
 
 function selectedShape(div) {
+  if (previousShape !== null) {
+    previousShape.style.backgroundColor = "transparent";
+  }
 
-    if (previousShape !== null) {
-        previousShape.style.backgroundColor = "transparent";
-    }
-
-    activeshape = div.dataset.shape;
-    div.style.backgroundColor = "lightgreen";
-    previousShape = div;
+  activeshape = div.dataset.shape;
+  div.style.backgroundColor = "lightgreen";
+  previousShape = div;
 }
 
-
 function drawShape(container, event) {
-    if (!activeshape || !activeColor) {
-        alert("Please select a shape and color");
-        return;
-    }
+  if (activeshape === "" || activeColor === "") {
+    alert("Please select a shape and color");
+    return;
+  }
 
-    const shapeDiv = document.createElement("div");
-    shapeDiv.className = activeshape;
+  const shapeDiv = document.createElement("div");
+  shapeDiv.className = activeshape;
 
-    shapeDiv.style.position = "absolute";
-    shapeDiv.style.top = `${event.clientY}px`;
-    shapeDiv.style.left = `${event.clientX}px`;
+  // Set shape position
+  shapeDiv.style.top = event.offsetY + "px";
+  shapeDiv.style.left = event.offsetX + "px";
+
+  // Apply color (except for triangle which uses border)
+  if (activeshape === "triangle") {
+    shapeDiv.style.borderBottomColor = activeColor;
+  } else {
     shapeDiv.style.backgroundColor = activeColor;
-    shapeDiv.style.width = "50px";
-    shapeDiv.style.height = "50px";
+  }
 
+  shapeDiv.onclick = function (e) {
+    e.stopPropagation(); // Prevent drawing again on shape click
+    changeColor(shapeDiv);
+  };
 
-    if (activeshape === "circle") {
-        shapeDiv.style.borderRadius = "50%";
-    } else if (activeshape === "square") {
-        shapeDiv.style.borderRadius = "0";
-    }
-
-    shapeDiv.onclick = function () {
-        changeColor(shapeDiv);
-    };
-
-    container.appendChild(shapeDiv);
+  container.appendChild(shapeDiv);
 }
 
 function changeColor(div) {
+  if (div.className === "triangle") {
+    div.style.borderBottomColor = activeColor;
+  } else {
     div.style.backgroundColor = activeColor;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

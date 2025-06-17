@@ -2,49 +2,40 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boxs OnClick</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shapes Drawer</title>
+  <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <div>
-        <div class="toolbar">
+  <div class="toolbar">
 
-            <div class="color">
-                <div onclick="selectedColor(this)" id="red"></div>
-                <div onclick="selectedColor(this)" id="green"></div>
-                <div onclick="selectedColor(this)" id="purple"></div>
-                <div onclick="selectedColor(this)" id="black"></div>
-                <div onclick="selectedColor(this)" id="yellow"></div>
-                <div onclick="selectedColor(this)" id="orange"></div>
-            </div>
-            <div class="shape">
-                <div onclick="selectedShape(this)" id="circle"></div>
-                <div onclick="selectedShape(this)" id="Square"></div>
-                <div onclick="selectedShape(this)" id="redtangle"></div>
-                <div onclick="selectedShape(this)" id="oval"></div>
-                <div onclick="selectedShape(this)" id="stare"></div>
-                <div onclick="selectedShape(this)" id="traiangle"></div>
-            </div>
- 
-       
-        </div>
-
-       <div id="ground" onclick="drawShape(this, event)"></div>
-
-
+    <div class="color">
+      <div onclick="selectedColor(this)" style="background-color: red;"></div>
+      <div onclick="selectedColor(this)" style="background-color: green;"></div>
+      <div onclick="selectedColor(this)" style="background-color: purple;"></div>
+      <div onclick="selectedColor(this)" style="background-color: black;"></div>
+      <div onclick="selectedColor(this)" style="background-color: yellow;"></div>
+      <div onclick="selectedColor(this)" style="background-color: orange;"></div>
     </div>
 
+    <div class="shape">
+      <div onclick="selectedShape(this)" data-shape="circle">●</div>
+      <div onclick="selectedShape(this)" data-shape="square">■</div>
+      <div onclick="selectedShape(this)" data-shape="rectangle">▭</div>
+      <div onclick="selectedShape(this)" data-shape="oval">⬭</div>
+      <div onclick="selectedShape(this)" data-shape="star">★</div>
+      <div onclick="selectedShape(this)" data-shape="triangle">▲</div>
+    </div>
 
+  </div>
 
+  <div id="container" onclick="drawShape(this, event)"></div>
 
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
-    <script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 
 </html>
-

@@ -1,112 +1,100 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
+body {
+    font-family: Arial, sans-serif;
+    padding: 0px;
 }
 
-
-.toolbar{
-    
-    background-color: rgb(255, 204, 204 , 0.5);
-    
-    border-radius: 50px;
+.toolbar {
     display: flex;
-    justify-content:space-between;
-    align-items: center;
+    flex-direction: column;
     gap: 20px;
-    width: 1400px;
-    height: 80px;
-    margin: 20px 60px;
-    padding: 10px ;
+    margin-bottom: 20px;
 }
 
-.color{
+.color,
+.shape {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    width: 100px;
-    height: 50px;
-   
+    gap: 10px;
 }
-.color>div{
+
+.color div {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.shape div {
     width: 50px;
     height: 50px;
-    border-radius: 50px;
-}
-
-.toolbar>div{
-    
-    width: 500px;
-    height: 50px;
-}
-
-
-#red{
-    background-color: red;
-}
-#green{
-    background-color: green;
-}
-#purple{
-    background-color: purple;
-}
-#black{
-    background-color:  black;
-}
-#yellow{
-    background-color: yellow;
-}
-#orange{
-    background-color: orange;
-}
-
-.shape{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    width: 100px;
-    height: 50px;
-}
-
-.shape>div{
-    width: 50px;
-    height: 50px;
-  
     border: 2px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
 }
 
-
-#circle{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-}
-#Square{
-    width: 50px;
-    height: 50px;
-}
-#redtangle{
-    width: 80px;
-    height: 50px;
-}
-#oval{
-    width: 80px;
-    height: 50px;
-    border-radius: 40px 40px;
-}
-#stare{
-    width: 50px;
-    height: 50px;
-}
-#traiangle{
-    width: 50px;
-    height: 50px;
+#ground {
+    width: 100%;
+    height: 500px;
+    border: 2px dashed gray;
+    position: relative;
 }
 
-#ground{
-    background-color: #fff;
-    width: 100vw;
-    height: 100vh;
-    
+/* Optional shape styles (can also be handled in JS) */
+.circle {
+    border-radius: 50%;
+}
+
+.square {
+    border-radius: 0;
+}
+
+.rectangle {
+    width: 80px !important;
+    height: 40px !important;
+}
+
+.oval {
+    border-radius: 50%;
+    width: 80px !important;
+    height: 40px !important;
+}
+
+.star {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid;
+    background: none !important;
+}
+
+.color div, .shape div {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border: 1px solid #aaa;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#container {
+  width: 100%;
+  height: 500px;
+  border: 2px dashed #888;
+  position: relative;
 }
